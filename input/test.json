@@ -1,0 +1,143 @@
+{
+	"version": 1.0,
+	"renderer": {
+		"threads": 0,
+		"samples": 2500,
+		"bounces": 50,
+		"tileWidth": 64,
+		"tileHeight": 64,
+		"tileOrder": "fromMiddle",
+		"outputFilePath": "output/",
+		"outputFileName": "rendered",
+		"fileType": "png",
+		"count": 0,
+		"width": 1280,
+		"height": 800
+	},
+	"display": {
+		"isFullscreen": false,
+		"isBorderless": false,
+		"windowScale": 1.0
+	},
+	"camera": {
+		"FOV": 180.0,
+		"fstops": 0.0,
+		"transforms": [
+			{
+				"type": "translate",
+				"x": 0,
+				"y": 1,
+				"z": -12
+			}
+		]
+	},
+	"scene": {
+		"ambientColor": {
+			"type": "background",
+			"color": {
+				"r": 0.006,
+				"g": 0.00,
+				"b": 0.014
+			}
+		},
+		"primitives": [
+			{
+				"type": "sphere",
+				"instances": [
+					{
+						"transforms": [
+							{
+								"type": "translate",
+								"x": 0,
+								"y": 300,
+								"z": 1000
+							}
+						]
+					}
+				],	
+				"material": {
+					"type": "emissive",
+					"color": {
+						"r": 1.0,
+						"g": 1.0,
+						"b": 1.0
+					},
+					"strength": 100.0
+				},
+				"radius": 25
+			}
+		],
+		"meshes": [
+			{
+				"fileName": "tempvolcano.obj",
+				"pick_instances": [
+					{
+						"for": "tempvolcano",
+						"materials": [
+							{
+								"replace": "Unknown",
+								"type": "diffuse",
+								"color": [0.141, 0.098, 0.110]
+							}
+						],
+						"transforms": [
+							{
+								"type": "scaleUniform",
+								"scale": 1
+							},
+							{
+								"type": "rotateX",
+								"degrees": -90
+							},
+							{
+								"type": "rotateZ",
+								"degrees": 135
+							},
+							{
+								"type": "translate",
+								"x": 0,
+								"y": 0,
+								"z": -1.5
+							}
+						]
+					}
+				]
+			},
+			{
+				"fileName": "water_surface.obj",
+				"pick_instances": [
+					{
+						"for": "water",
+						"materials": [
+							{
+								"replace": "Unknown",
+								"type": "mix",
+								"A": {
+									"type": "transparent",
+									"color": [0.0314, 0.0392, 0.4549]
+								},
+								"B": {
+									"type": "glass",
+									"color": [0.0314, 0.0392, 0.4549],
+									"roughness": 0.5,
+									"IOR": 1.33
+								},
+								"factor": 0.7
+							}
+						],
+						"transforms": [
+							{
+								"type": "scaleUniform",
+								"scale": 1
+							},
+							{
+								"type": "rotateX",
+								"degrees": -90
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}
