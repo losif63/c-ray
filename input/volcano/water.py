@@ -13,13 +13,19 @@ def water_surface(x, y, scale=1, amplitude=0.5, frequency=1, time=0, noise_ampli
             z[i, j] = amplitude * perlin_noise * noise_amplitude + 0.1 * np.sin(frequency * (x[i, j] + y[i, j] + time))
     return z
 
-# Generate a grid of x and y values
-x = np.power(np.linspace(-1, 1, 500), 3) * 30
-y = np.power(np.linspace(-1, 1, 500), 3) * 30
-x, y = np.meshgrid(x, y)
-
-# Simulate water surface at time t=0
-z = water_surface(x, y, scale=0.5, amplitude=1, frequency=2, time=0)
+# Calculate normals
+def calculate_normals(x, y, z):
+    dzdx = np.gradient(z, axis=1, edge_order=2) / np.gradient(x, axis=1, edge_order=2)
+    dzdy = np.gradient(z, axis=0, edge_order=2) / np.gradient(y, axis=0, edge_order=2)
+    normal = np.zeros((x.shape[0], x.shape[1], 3))
+    normal[..., 0] = -dzdx
+    normal[..., 1] = -dzdy
+    normal[..., 2] = 1
+    norm = np.linalg.norm(normal, axis=2)
+    normal[..., 0] /= norm
+    normal[..., 1] /= norm
+    normal[..., 2] /= norm
+    return normal
 
 # Create the 3D mesh data
 def generate_mesh(x, y, z):
@@ -33,8 +39,16 @@ def generate_mesh(x, y, z):
             faces.append([idx + 1, idx + 1 + num_y, idx + num_y])
     return vertices, np.array(faces)
 
+# Generate a grid of x and y values
+x = np.power(np.linspace(-1, 1, 200), 3) * 30
+y = np.power(np.linspace(-1, 1, 200), 3) * 30
+x, y = np.meshgrid(x, y)
+
+# Simulate water surface at time t=0
+z = water_surface(x, y, scale=0.5, amplitude=1, frequency=2, time=0)
+vertex_normals = calculate_normals(x, y, z).reshape(-1, 3)
 vertices, faces = generate_mesh(x, y, z)
-mesh = trimesh.Trimesh(vertices=vertices, faces=faces)
+mesh = trimesh.Trimesh(vertices=vertices, faces=faces, vertex_normals=vertex_normals)
 
 # Export to OBJ file
 mesh.export('input/water_surface.obj')

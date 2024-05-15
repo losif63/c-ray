@@ -2,8 +2,8 @@
 	"version": 1.0,
 	"renderer": {
 		"threads": 0,
-		"samples": 2500,
-		"bounces": 50,
+		"samples": 3000,
+		"bounces": 15,
 		"tileWidth": 64,
 		"tileHeight": 64,
 		"tileOrder": "fromMiddle",
@@ -35,17 +35,36 @@
 		"ambientColor": {
 			"type": "background",
 			"color": {
-				"r": 0.006,
-				"g": 0.00,
+				"r": 0.002,
+				"g": 0.002,
 				"b": 0.014
 			}
 		},
 		"primitives": [
+		],
+		"meshes": [
 			{
-				"type": "sphere",
-				"instances": [
+				"fileName": "sphere.obj",
+				"pick_instances": [
 					{
+						"for": "sphere",
+						"materials": [
+							{
+								"replace": "Unknown",
+								"type": "emissive",
+								"color": {
+									"r": 1.0, 
+									"g": 1.0, 
+									"b": 1.0
+								},
+								"strength": 10.0
+							}
+						],
 						"transforms": [
+							{
+								"type": "scaleUniform",
+								"scale": 100
+							},
 							{
 								"type": "translate",
 								"x": 0,
@@ -54,20 +73,8 @@
 							}
 						]
 					}
-				],	
-				"material": {
-					"type": "emissive",
-					"color": {
-						"r": 1.0,
-						"g": 1.0,
-						"b": 1.0
-					},
-					"strength": 100.0
-				},
-				"radius": 25
-			}
-		],
-		"meshes": [
+				]
+			},
 			{
 				"fileName": "tempvolcano.obj",
 				"pick_instances": [
@@ -113,16 +120,17 @@
 								"replace": "Unknown",
 								"type": "mix",
 								"A": {
-									"type": "transparent",
-									"color": [0.0314, 0.0392, 0.4549]
+									"type": "metal",
+									"color": [0.1, 0.1, 0.1],
+									"roughness": 0.0
 								},
 								"B": {
 									"type": "glass",
-									"color": [0.0314, 0.0392, 0.4549],
-									"roughness": 0.5,
+									"color": [0.0314, 0.1392, 0.4549],
+									"roughness": 0.25,
 									"IOR": 1.33
 								},
-								"factor": 0.7
+								"factor": 0.995
 							}
 						],
 						"transforms": [
