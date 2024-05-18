@@ -1,151 +1,153 @@
 {
-	"version": 1.0,
-	"renderer": {
-		"threads": 0,
-		"samples": 3000,
-		"bounces": 15,
-		"tileWidth": 64,
-		"tileHeight": 64,
-		"tileOrder": "fromMiddle",
-		"outputFilePath": "output/",
-		"outputFileName": "rendered",
-		"fileType": "png",
-		"count": 0,
-		"width": 1280,
-		"height": 800
-	},
-	"display": {
-		"isFullscreen": false,
-		"isBorderless": false,
-		"windowScale": 1.0
-	},
-	"camera": {
-		"FOV": 180.0,
-		"fstops": 0.0,
-		"transforms": [
-			{
-				"type": "translate",
-				"x": 0,
-				"y": 1,
-				"z": -12
-			}
-		]
-	},
-	"scene": {
-		"ambientColor": {
-			"type": "background",
-			"color": {
-				"r": 0.002,
-				"g": 0.002,
-				"b": 0.014
-			}
-		},
-		"primitives": [
-		],
-		"meshes": [
-			{
-				"fileName": "sphere.obj",
-				"pick_instances": [
-					{
-						"for": "sphere",
-						"materials": [
-							{
-								"replace": "Unknown",
-								"type": "emissive",
-								"color": {
-									"r": 1.0, 
-									"g": 1.0, 
-									"b": 1.0
-								},
-								"strength": 10.0
-							}
-						],
-						"transforms": [
-							{
-								"type": "scaleUniform",
-								"scale": 100
-							},
-							{
-								"type": "translate",
-								"x": 0,
-								"y": 300,
-								"z": 1000
-							}
-						]
-					}
-				]
-			},
-			{
-				"fileName": "tempvolcano.obj",
-				"pick_instances": [
-					{
-						"for": "tempvolcano",
-						"materials": [
-							{
-								"replace": "Unknown",
-								"type": "diffuse",
-								"color": [0.141, 0.098, 0.110]
-							}
-						],
-						"transforms": [
-							{
-								"type": "scaleUniform",
-								"scale": 1
-							},
-							{
-								"type": "rotateX",
-								"degrees": -90
-							},
-							{
-								"type": "rotateZ",
-								"degrees": 135
-							},
-							{
-								"type": "translate",
-								"x": 0,
-								"y": 0,
-								"z": -1.5
-							}
-						]
-					}
-				]
-			},
-			{
-				"fileName": "water_surface.obj",
-				"pick_instances": [
-					{
-						"for": "water",
-						"materials": [
-							{
-								"replace": "Unknown",
+    "version": 1.0,
+    "renderer": {
+        "threads": 0,
+        "samples": 1000,
+        "bounces": 30,
+        "tileWidth": 64,
+        "tileHeight": 64,
+        "tileOrder": "fromMiddle",
+        "outputFilePath": "output/",
+        "outputFileName": "rendered",
+        "fileType": "png",
+        "count": 0,
+        "width": 1280,
+        "height": 800
+    },
+    "display": {
+        "isFullscreen": false,
+        "isBorderless": false,
+        "windowScale": 1.0
+    },
+    "camera": {
+        "FOV": 180.0,
+        "fstops": 0.0,
+        "transforms": [
+            {
+                "type": "translate",
+                "x": 0,
+                "y": 1,
+                "z": -10
+            }
+        ]
+    },
+    "scene": {
+        "ambientColor": {
+            "type": "background",
+            "hdr": "HDRs/059_hdrmaps_com_free_4K.hdr",
+            "strength": 0.5
+        },
+        "primitives": [],
+        "meshes": [
+            {
+                "fileName": "sphere.obj",
+                "pick_instances": [
+                    {
+                        "for": "sphere",
+                        "materials": [
+                            {
+                                "replace": "Unknown",
+                                "type": "emissive",
+                                "color": {
+                                    "r": 0.965,
+                                    "g": 0.945,
+                                    "b": 0.736
+                                },
+                                "strength": 5
+                            }
+                        ],
+                        "transforms": [
+                            {
+                                "type": "scaleUniform",
+                                "scale": 20
+                            },
+                            {
+                                "type": "translate",
+                                "x": 0,
+                                "y": 400,
+                                "z": 900
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "fileName": "tempvolcano.obj",
+                "pick_instances": [
+                    {
+                        "for": "tempvolcano",
+                        "materials": [
+                            {
+								"replace": "material_0",
 								"type": "mix",
-								"A": {
-									"type": "metal",
-									"color": [0.1, 0.1, 0.1],
-									"roughness": 0.0
-								},
-								"B": {
-									"type": "glass",
-									"color": [0.0314, 0.1392, 0.4549],
-									"roughness": 0.25,
-									"IOR": 1.33
-								},
-								"factor": 0.995
+                                "A": {
+                                    "type": "diffuse",
+                                    "roughness": 0,
+								    "IOR": 1.45,
+                                    "color": {
+                                        "lerp": false,
+                                        "path": "input/material_0.png"
+                                    }
+                                },
+                                "B": {
+                                    "type": "emissive",
+                                    "color": {
+                                        "lerp": false,
+                                        "path": "input/material_0.png"
+                                    },
+                                    "strength": 1.0
+                                },
+                                "factor": 0.35
 							}
-						],
-						"transforms": [
-							{
-								"type": "scaleUniform",
-								"scale": 1
-							},
-							{
-								"type": "rotateX",
-								"degrees": -90
-							}
-						]
-					}
-				]
-			}
-		]
-	}
+                        ],
+                        "transforms": [
+                            {
+                                "type": "scaleUniform",
+                                "scale": 1
+                            },
+                            {
+                                "type": "rotateY",
+                                "degrees": 135
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "fileName": "water_surface.obj",
+                "pick_instances": [
+                    {
+                        "for": "water",
+                        "materials": [
+                            {
+                                "replace": "Unknown",
+                                "type": "mix",
+                                "A": {
+                                    "type": "metal",
+                                    "color": [
+                                        0.0314,
+                                        0.1392,
+                                        0.4549
+                                    ],
+                                    "roughness": 0.0
+                                },
+                                "B": {
+                                    "type": "glass",
+                                    "color": [
+                                        1.0,
+                                        1.0,
+                                        1.0
+                                    ],
+                                    "roughness": 0.002,
+                                    "IOR": 1.33
+                                },
+                                "factor": 0.5
+                            }
+                        ],
+                        "transforms": []
+                    }
+                ]
+            }
+        ]
+    }
 }

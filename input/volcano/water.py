@@ -40,12 +40,12 @@ def generate_mesh(x, y, z):
     return vertices, np.array(faces)
 
 # Generate a grid of x and y values
-x = np.power(np.linspace(-1, 1, 250), 3) * 30
-y = np.power(np.linspace(-1, 1, 250), 3) * 30
-x, y = np.meshgrid(x, y)
+x = np.concatenate([np.linspace(-5000, -100, 10), np.linspace(-100, -45, 55), np.linspace(-45, -25, 40), np.linspace(-25, -10, 60), np.linspace(-10, 10, 160), np.linspace(10, 25, 60), np.linspace(25, 45, 40), np.linspace(45, 100, 55), np.linspace(100, 5000, 10)])
+z = np.concatenate([np.linspace(-5000, -100, 10), np.linspace(-100, -45, 55), np.linspace(-45, -25, 40), np.linspace(-25, -10, 60), np.linspace(-10, 10, 160), np.linspace(10, 25, 60), np.linspace(25, 45, 40), np.linspace(45, 100, 55), np.linspace(100, 5000, 10)])
+x, z = np.meshgrid(x, z)
 
 # Simulate water surface at time t=0
-z = water_surface(x, y, scale=0.25, amplitude=0.35, frequency=2, time=0)
+y = water_surface(x, z, scale=0.25, amplitude=0.35, frequency=2, time=0)
 vertex_normals = calculate_normals(x, y, z).reshape(-1, 3)
 vertices, faces = generate_mesh(x, y, z)
 mesh = trimesh.Trimesh(vertices=vertices, faces=faces, vertex_normals=vertex_normals)
