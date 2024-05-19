@@ -15,10 +15,11 @@ pixels = image.load()
 # Colors
 white_color = (255, 255, 0)
 yellow_color = (255, 0, 0)
-brown_color = (39, 24, 4)
+black_color = (0, 0, 0)
 
 hole_radius = 18
 lava_radius = 75
+glow_radius = 90
 
 # Function to interpolate between two colors
 def lerp_color(color1, color2, t):
@@ -30,14 +31,17 @@ for i in range(width):
         # Distance from the center
         dist = np.sqrt((i - 10 - center_x)**2 + (j - center_y)**2)
         t = (dist - hole_radius) / (lava_radius - hole_radius)
+        t2 = (dist - lava_radius) / (glow_radius - lava_radius)
         
         # Set pixel color based on distance
         if dist <= hole_radius:
-            pixels[i, j] = brown_color
+            pixels[i, j] = black_color
         elif dist <= lava_radius:
             pixels[i, j] = lerp_color(white_color, yellow_color, t)
+        elif dist <= glow_radius:
+            pixels[i, j] = lerp_color(yellow_color, black_color, t2)
         else:
-            pixels[i, j] = brown_color
+            pixels[i, j] = black_color
 
 # Add Perlin noise for reddish colors
 scale = 10.0

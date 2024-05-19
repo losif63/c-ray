@@ -11,8 +11,8 @@
         "outputFileName": "rendered",
         "fileType": "png",
         "count": 0,
-        "width": 1280,
-        "height": 800
+        "width": 1920,
+        "height": 1080
     },
     "display": {
         "isFullscreen": false,
@@ -72,22 +72,17 @@
                 ]
             },
             {
-                "fileName": "tempvolcano.obj",
+                "fileName": "volcano.obj",
                 "pick_instances": [
                     {
-                        "for": "tempvolcano",
+                        "for": "volcano",
                         "materials": [
                             {
 								"replace": "material_0",
 								"type": "mix",
                                 "A": {
                                     "type": "diffuse",
-                                    "roughness": 0,
-								    "IOR": 1.45,
-                                    "color": {
-                                        "lerp": false,
-                                        "path": "input/material_0.png"
-                                    }
+                                    "color": [0.2, 0.133, 0.145]
                                 },
                                 "B": {
                                     "type": "emissive",
@@ -95,7 +90,7 @@
                                         "lerp": false,
                                         "path": "input/material_0.png"
                                     },
-                                    "strength": 1.0
+                                    "strength": 3.0
                                 },
                                 "factor": 0.35
 							}
@@ -114,6 +109,216 @@
                 ]
             },
             {
+                "fileName": "lava1.obj",
+                "pick_instances": [
+                    {
+                        "for": "lava1",
+                        "materials": [
+                            {
+								"replace": "Unknown",
+								"type": "emissive",
+                                "color": {
+                                    "type": "blackbody",
+                                    "degrees": 1000
+                                },
+                                "strength": 5.0
+							}
+                        ],
+                        "transforms": [
+                            {
+                                "type": "scaleUniform",
+                                "scale": 1
+                            },
+                            {
+                                "type": "rotateY",
+                                "degrees": 135
+                            },
+                            {
+                                "type": "translate",
+                                "x": 0,
+                                "y": 0.05,
+                                "z": 0
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "fileName": "lava2.obj",
+                "pick_instances": [
+                    {
+                        "for": "lava2",
+                        "materials": [
+                            {
+								"replace": "Unknown",
+								"type": "emissive",
+                                "color": {
+                                    "type": "blackbody",
+                                    "degrees": 850
+                                },
+                                "strength": 5.0
+							}
+                        ],
+                        "transforms": [
+                            {
+                                "type": "scaleUniform",
+                                "scale": 1
+                            },
+                            {
+                                "type": "rotateY",
+                                "degrees": 135
+                            },
+                            {
+                                "type": "translate",
+                                "x": 0,
+                                "y": 0.05,
+                                "z": 0
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "fileName": "lava3.obj",
+                "pick_instances": [
+                    {
+                        "for": "lava3",
+                        "materials": [
+                            {
+								"replace": "Unknown",
+								"type": "emissive",
+                                "color": {
+                                    "type": "blackbody",
+                                    "degrees": 766
+                                },
+                                "strength": 5.0
+							}
+                        ],
+                        "transforms": [
+                            {
+                                "type": "scaleUniform",
+                                "scale": 1
+                            },
+                            {
+                                "type": "rotateY",
+                                "degrees": 135
+                            },
+                            {
+                                "type": "translate",
+                                "x": 0,
+                                "y": 0.05,
+                                "z": 0
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "fileName": "lava4.obj",
+                "pick_instances": [
+                    {
+                        "for": "lava4",
+                        "materials": [
+                            {
+								"replace": "Unknown",
+								"type": "emissive",
+                                "color": {
+                                    "type": "blackbody",
+                                    "degrees": 766
+                                },
+                                "strength": 5.0
+							}
+                        ],
+                        "transforms": [
+                            {
+                                "type": "scaleUniform",
+                                "scale": 1
+                            },
+                            {
+                                "type": "rotateY",
+                                "degrees": 135
+                            },
+                            {
+                                "type": "translate",
+                                "x": 0,
+                                "y": 0.05,
+                                "z": 0
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "fileName": "lava5.obj",
+                "pick_instances": [
+                    {
+                        "for": "lava5",
+                        "materials": [
+                            {
+								"replace": "Unknown",
+								"type": "emissive",
+                                "color": {
+                                    "type": "blackbody",
+                                    "degrees": 718
+                                },
+                                "strength": 5.0
+							}
+                        ],
+                        "transforms": [
+                            {
+                                "type": "scaleUniform",
+                                "scale": 1
+                            },
+                            {
+                                "type": "rotateY",
+                                "degrees": 135
+                            },
+                            {
+                                "type": "translate",
+                                "x": 0,
+                                "y": 0.05,
+                                "z": 0
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "fileName": "lava6.obj",
+                "pick_instances": [
+                    {
+                        "for": "lava6",
+                        "materials": [
+                            {
+								"replace": "Unknown",
+								"type": "emissive",
+                                "color": {
+                                    "type": "blackbody",
+                                    "degrees": 670
+                                },
+                                "strength": 5.0
+							}
+                        ],
+                        "transforms": [
+                            {
+                                "type": "scaleUniform",
+                                "scale": 1
+                            },
+                            {
+                                "type": "rotateY",
+                                "degrees": 135
+                            },
+                            {
+                                "type": "translate",
+                                "x": 0,
+                                "y": 0.05,
+                                "z": 0
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
                 "fileName": "water_surface.obj",
                 "pick_instances": [
                     {
@@ -123,13 +328,12 @@
                                 "replace": "Unknown",
                                 "type": "mix",
                                 "A": {
-                                    "type": "metal",
+                                    "type": "transparent",
                                     "color": [
                                         0.0314,
                                         0.1392,
                                         0.4549
-                                    ],
-                                    "roughness": 0.0
+                                    ]
                                 },
                                 "B": {
                                     "type": "glass",
@@ -141,7 +345,7 @@
                                     "roughness": 0.002,
                                     "IOR": 1.33
                                 },
-                                "factor": 0.5
+                                "factor": 0.75
                             }
                         ],
                         "transforms": []
