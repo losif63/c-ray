@@ -2,8 +2,8 @@
     "version": 1.0,
     "renderer": {
         "threads": 0,
-        "samples": 1000,
-        "bounces": 30,
+        "samples": 3000,
+        "bounces": 50,
         "tileWidth": 64,
         "tileHeight": 64,
         "tileOrder": "fromMiddle",
@@ -64,8 +64,8 @@
                             {
                                 "type": "translate",
                                 "x": 0,
-                                "y": 400,
-                                "z": 900
+                                "y": 250,
+                                "z": 1000
                             }
                         ]
                     }
@@ -103,6 +103,95 @@
                             {
                                 "type": "rotateY",
                                 "degrees": 135
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "fileName": "island.obj",
+                "pick_instances": [
+                    {
+                        "for": "island",
+                        "materials": [
+                            {
+								"replace": "Unknown",
+								"type": "diffuse",
+                                "color": [0.2, 0.133, 0.145]
+							}
+                        ],
+                        "transforms": [
+                            {
+                                "type": "scaleUniform",
+                                "scale": 1
+                            },
+                            {
+                                "type": "translate",
+                                "x": 8,
+                                "y": 0,
+                                "z": 2.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "fileName": "island2.obj",
+                "pick_instances": [
+                    {
+                        "for": "island2",
+                        "materials": [
+                            {
+								"replace": "Unknown",
+								"type": "diffuse",
+                                "color": [0.2, 0.133, 0.145]
+							}
+                        ],
+                        "transforms": [
+                            {
+                                "type": "scaleUniform",
+                                "scale": 1
+                            },
+                            {
+                                "type": "translate",
+                                "x": -10,
+                                "y": 0,
+                                "z": 6
+                            },
+                            {
+                                "type": "rotateY",
+                                "degrees": -25
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "fileName": "island3.obj",
+                "pick_instances": [
+                    {
+                        "for": "island3",
+                        "materials": [
+                            {
+								"replace": "Unknown",
+								"type": "diffuse",
+                                "color": [0.2, 0.133, 0.145]
+							}
+                        ],
+                        "transforms": [
+                            {
+                                "type": "scaleUniform",
+                                "scale": 1
+                            },
+                            {
+                                "type": "translate",
+                                "x": 4.5,
+                                "y": 0.1,
+                                "z": 6.0
+                            },
+                            {
+                                "type": "rotateY",
+                                "degrees": 60
                             }
                         ]
                     }
@@ -328,12 +417,13 @@
                                 "replace": "Unknown",
                                 "type": "mix",
                                 "A": {
-                                    "type": "transparent",
+                                    "type": "metal",
                                     "color": [
                                         0.0314,
                                         0.1392,
                                         0.4549
-                                    ]
+                                    ],
+                                    "roughness": 0.0
                                 },
                                 "B": {
                                     "type": "glass",
