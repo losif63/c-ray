@@ -35,6 +35,6 @@ def save_obj(filename, vertices, faces):
 
 # Usage
 radius = 1
-divisions = 10  # More divisions, smoother sphere
+divisions = 20  # More divisions, smoother sphere
 vertices, faces = create_sphere(radius, divisions)
 save_obj("input/sphere10.obj", vertices, faces)
