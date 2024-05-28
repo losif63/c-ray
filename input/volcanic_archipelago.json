@@ -2,8 +2,8 @@
     "version": 1.0,
     "renderer": {
         "threads": 0,
-        "samples": 3000,
-        "bounces": 50,
+        "samples": 1000,
+        "bounces": 30,
         "tileWidth": 64,
         "tileHeight": 64,
         "tileOrder": "fromMiddle",
