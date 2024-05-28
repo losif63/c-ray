@@ -246,7 +246,7 @@ int main(int argc, char *argv[]) {
 		output_name = cr_renderer_get_str_pref(renderer, cr_renderer_output_name);
 	}
 
-	if (usrdata.should_save) {
+	if (usrdata.should_save || true) {
 		struct imageFile file = (struct imageFile){
 			.filePath = output_path,
 			.fileName = output_name,

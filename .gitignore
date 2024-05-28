@@ -2,6 +2,7 @@
 
 ### Custom ###
 *.png
+!input/material_0.png
 *.bmp
 bin/*
 lib/*
@@ -24,6 +25,7 @@ tests/testrunner
 # Heavy HDR files, just include a small one for demo
 input/HDRs/*
 !input/HDRs/rooitou_park_1k.hdr
+!059_hdrmaps_com_free_4K.hdr
 
 # for git version string
 generated/gitsha1.c
